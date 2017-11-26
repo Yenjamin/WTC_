@@ -1,0 +1,27 @@
+3
+E 3 5
+B 3 5
+C 3 5
+F 3 5
+D 3 5
+##start
+H 3 5
+A 3 5
+##end
+G 3 5
+H-A
+H-A
+H-B
+H-C
+A-D
+D-G
+B-E
+E-G
+C-F
+C-E
+B-D
+C-B
+B-A
+F-G
+F-E
+E-D
