@@ -10,57 +10,60 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include "./libft.h"
+#include "libft.h"
 
-static int	readline(int fd, char **part)
+int		fill_buf(const int fd, char **ptr)
 {
-	char	*b;
-	char	*t;
-	int		i;
+	char	*buf;
+	int		ret;
+	char	*newstr;
 
-	b = (char *)malloc(sizeof(char) * (BUFF_SIZE + 1));
-	ft_bzero(b, (BUFF_SIZE + 1));
-	if (b == NULL)
+	if ((buf = (char *)ft_memalloc(sizeof(char) * (BUFF_SIZE + 1))) == NULL)
 		return (-1);
-	i = read(fd, b, BUFF_SIZE);
-	if (i > 0)
+	ret = read(fd, buf, BUFF_SIZE);
+	if (ret > 0)
 	{
-		t = ft_strjoin(*part, b);
-		if (!t)
-			return (-1);
-		free(*part);
-		*part = t;
+		newstr = ft_strjoin(*ptr, buf);
+		free(*ptr);
+		*ptr = newstr;
 	}
-	free(b);
-	return (i);
+	if (buf)
+		free(buf);
+	return (ret);
+}
+
+int		ft_new(char **buf, char **endl_ptr)
+{
+	if ((*endl_ptr = ft_strdup(*endl_ptr + 1)) == NULL)
+		return (-1);
+	free(*buf);
+	*buf = *endl_ptr;
+	return (1);
 }
 
 int		get_next_line(const int fd, char **line)
 {
-	static char	*s;
-	char		*p;
-	int			i;
+	static char	*buf;
+	char		*endl_ptr;
+	int			ret;
 
-	if (!s && (s = malloc(sizeof(*s))) == NULL)
+	if (buf == NULL && (buf = (char *)ft_memalloc(sizeof(char))) == NULL)
 		return (-1);
-	p = ft_strchr(s, '\n');
-	while (p == NULL)
+	endl_ptr = ft_strchr(buf, '\n');
+	while (endl_ptr == NULL)
 	{
-		if ((i = readline(fd, &s)) == 0)
+		ret = fill_buf(fd, &buf);
+		if (ret == 0)
 		{
-			if (ft_strlen(s) == 0)
+			if ((endl_ptr = ft_strchr(buf, '\0')) == buf)
 				return (0);
-			s = ft_strjoin(s, "\n");
 		}
-		if (i < 0)
+		else if (ret < 0)
 			return (-1);
 		else
-			p = ft_strchr(s, '\n');
+			endl_ptr = ft_strchr(buf, '\n');
 	}
-	*line = ft_strsub(s, 0, ft_strlen(s) - ft_strlen(p));
-	p = ft_strdup(p + 1);
-	free(s);
-	s = p;
-	return (1);
+	if ((*line = ft_strsub(buf, 0, (endl_ptr - buf))) == NULL)
+		return (-1);
+	return (ft_new(&buf, &endl_ptr));
 }

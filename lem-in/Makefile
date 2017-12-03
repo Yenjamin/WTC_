@@ -1,9 +1,11 @@
 NAME = lem-in
 
 SRC = main.c \
-		others.c \
 		getinfo.c \
-		roomcreation.c \
+		possibleroutes.c \
+		movement.c \
+		movement2.c \
+		free.c \
 
 FLAGS = -Wall -Werror -Wextra -g
 
