@@ -2,11 +2,11 @@
 
 void    initialize(char *av, t_data *all)
 {
-    all->size = 25;
+    all->size = 40;
     all->x_start = 1000;
-    all->y_start = 400;
+    all->y_start = 300;
     all->height = -10;
-    all->colour = 0x0077FF;
+    all->colour = 0x0099FF;
     all->width = 0.25;
     all->length = 0.5;
     all->mlx = mlx_init();

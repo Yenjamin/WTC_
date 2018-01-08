@@ -4,7 +4,7 @@ SRC = main.c \
 		initialize.c \
 		reader.c \
 		convert.c \
-		bresenham.c \
+		draw.c \
 
 FLAGS = -Wall -Werror -Wextra -g
 

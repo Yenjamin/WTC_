@@ -6,17 +6,16 @@
 
 typedef struct		s_bres
 {
-	int				dx;
-	int				dy;
+	float			dx;
+	float			dy;
 	int				i;
-	int				f;
-	int				inc1;
-	int				inc2;
-	int				incx;
-	int				incy;
-	int				cumul;
-	int				x;
-	int				y;
+	float			f;
+	//int				inc1;
+	//int				inc2;
+	//int				incx;
+	//int				incy;
+	float			x;
+	float			y;
 }					t_bres;
 
 typedef struct      s_points
@@ -61,9 +60,10 @@ void    str_atoi(t_data *all);
 void	ft_free2d(char **arr);
 void    save_points(t_data *all);
 void    isometric_points(t_data *all);
-void	bresenham(t_data *all);
-void	bresenham2(t_points *a, t_points *b, t_data *all);
-void	case1(t_data *all, t_bres *p, int color);
-void	case2(t_data *all, t_bres *p, int color);
+void	draw(t_data *all);
+void	DDA(t_points *a, t_points *b, t_data *all);
+//void	bresenham(t_points *a, t_points *b, t_data *all);
+//void	case1(t_data *all, t_bres *p, int color);
+//void	case2(t_data *all, t_bres *p, int color);
 
 #endif

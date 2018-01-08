@@ -44,16 +44,14 @@ void	case2(t_data *all, t_bres *p, int color)
 	}
 }
 
-void	bresenham2(t_points *a, t_points *b, t_data *all)
+void	bresenham(t_points *a, t_points *b, t_data *all)
 {
 	t_bres *p;
 
 	if (!(p = (t_bres*)malloc(sizeof(t_bres))))
 		error();
-	p->dx = b->xp - a->xp;
-	p->dy = b->yp - a->yp;
-	p->dx = ft_abs(p->dx);
-	p->dy = ft_abs(p->dy);
+	p->dx = ft_abs(b->xp - a->xp);
+	p->dy = ft_abs(b->yp - a->yp);
 	p->incx = (b->xp < a->xp) ? -1 : 1;
 	p->incy = (b->yp < a->yp) ? -1 : 1;
 	p->x = a->xp;
@@ -64,7 +62,7 @@ void	bresenham2(t_points *a, t_points *b, t_data *all)
 		case2(all, p, all->colour);
 }
 
-void	bresenham(t_data *all)
+void	draw(t_data *all)
 {
 	int i;
 
@@ -72,9 +70,9 @@ void	bresenham(t_data *all)
 	while (all->point[i])
 	{
 		if ((i + 1) % all->x_max != 0)
-			bresenham2(all->point[i], all->point[i + 1], all);
+			bresenham(all->point[i], all->point[i + 1], all);
 		if (i < ((all->x_max * all->y_max) - all->x_max))
-			bresenham2(all->point[i], all->point[i + all->x_max], all);
+			bresenham(all->point[i], all->point[i + all->x_max], all);
 		i++;
 	}
 }
