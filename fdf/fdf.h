@@ -3,6 +3,7 @@
 
 # include "miniLibX/mlx.h"
 # include "libft/libft.h"
+# include <math.h>
 
 typedef struct		s_bres
 {
@@ -12,8 +13,8 @@ typedef struct		s_bres
 	float			f;
 	//int				inc1;
 	//int				inc2;
-	//int				incx;
-	//int				incy;
+	float			incx;
+	float			incy;
 	float			x;
 	float			y;
 }					t_bres;

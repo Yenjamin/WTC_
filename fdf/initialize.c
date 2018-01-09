@@ -46,7 +46,7 @@ void    isometric_points(t_data *all)
         all->point[i]->yg = all->point[i]->y + (all->point[i]->y * all->size);
         all->point[i]->zp = all->point[i]->z * all->height;
         all->point[i]->xp = (all->width * all->point[i]->xg) - (all->length * all->point[i]->yg);
-        all->point[i]->yp = (all->point[i]->zp) + ((all->width / 2) * all->point[i]->xg) + ((all->length / 2) * all->point[i]->yg);
+        all->point[i]->yp = ((all->width * all->point[i]->xg) + (all->length * all->point[i]->yg)) / 2 + (all->point[i]->zp);
         all->point[i]->xp += all->x_start;
         all->point[i]->yp += all->y_start;
         i++;
