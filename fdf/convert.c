@@ -60,6 +60,7 @@ void    save_points(t_data *all)
             all->point[i]->x = x;
             all->point[i]->z = all->points[y][x];
             i++;
+            all->point[i] = NULL;
             x++;
         }
         y++;

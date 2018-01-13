@@ -5,7 +5,7 @@ void    initialize(char *av, t_data *all)
     all->size = 40;
     all->x_start = 1000;
     all->y_start = 300;
-    all->height = -10;
+    all->height = -1;
     all->colour = 0x0099FF;
     all->width = 0.25;
     all->length = 0.5;

@@ -24,6 +24,8 @@ int     main(int ac, char **av)
 
     if (ac != 2)
         error();
+    if (!ft_strstr(av[1], ".fdf"))
+        error();
     if (!(all = (t_data*)malloc(sizeof(t_data))))
         error();
     initialize(av[1], all);

@@ -41,19 +41,10 @@ void    reader(char *av, t_data *all)
 {
     int     fd;
     char    *content;
-    int     i;
 
-    i = 0;
     fd = open(av, O_RDONLY);
     content = get_content(fd);
     close(fd);
-    while (content[i])
-    {
-        if (content[i] == ' ' || content[i] == '-' || (content[i] >= 48 && content[i] <= 57) || content[i] == '\n' || content[i] == ',' || content[i] == 'x' || content[i] == 'F')
-            i++;
-        else
-            error();
-    }
     all->str = ft_strsplit(content, '\n');
 	ft_strdel(&content);
 }
