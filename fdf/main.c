@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yechen <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/15 12:56:28 by yechen            #+#    #+#             */
+/*   Updated: 2018/01/15 13:21:20 by yechen           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
-void    error(void)
+void	error(void)
 {
-    ft_putendl("error");
-    exit(0);
+	ft_putendl("error");
+	exit(0);
 }
 
-int     escape(int keycode, t_data *all)
+int		escape(int keycode, t_data *all)
 {
 	if (keycode == 53)
 	{
@@ -18,24 +30,24 @@ int     escape(int keycode, t_data *all)
 	return (0);
 }
 
-int     main(int ac, char **av)
+int		main(int ac, char **av)
 {
-    t_data  *all;
+	t_data	*all;
 
-    if (ac != 2)
-        error();
-    if (!ft_strstr(av[1], ".fdf"))
-        error();
-    if (!(all = (t_data*)malloc(sizeof(t_data))))
-        error();
-    initialize(av[1], all);
-    reader(av[1], all);
-    max_size(all);
-    str_atoi(all);
-    save_points(all);
-    isometric_points(all);
-    draw(all);
-    mlx_key_hook(all->win, escape, all);
-    mlx_loop(all->mlx);
-    return (0);
+	if (ac != 2)
+		error();
+	if (!ft_strstr(av[1], ".fdf"))
+		error();
+	if (!(all = (t_data*)malloc(sizeof(t_data))))
+		error();
+	initialize(av[1], all);
+	reader(av[1], all);
+	max_size(all);
+	str_atoi(all);
+	save_points(all);
+	isometric_points(all);
+	draw(all);
+	mlx_key_hook(all->win, escape, all);
+	mlx_loop(all->mlx);
+	return (0);
 }

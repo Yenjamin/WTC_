@@ -6,7 +6,7 @@
 /*   By: yechen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/29 17:49:42 by yechen            #+#    #+#             */
-/*   Updated: 2017/08/15 16:11:47 by yechen           ###   ########.fr       */
+/*   Updated: 2018/01/15 13:36:19 by yechen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 
-#define BUFF_SIZE 1
+# define BUFF_SIZE 1
 
 typedef struct	s_list
 {
@@ -80,7 +80,7 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char const *s, int fd);
 void			ft_putendl_fd(char const *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
-int     		get_next_line(const int fd, char **line);
+int				get_next_line(const int fd, char **line);
 t_list			*ft_lstnew(void const *content, size_t content_size);
 void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));

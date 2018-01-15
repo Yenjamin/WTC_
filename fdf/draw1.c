@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw1.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yechen <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/15 12:57:18 by yechen            #+#    #+#             */
+/*   Updated: 2018/01/15 13:11:50 by yechen           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
 void	case1(t_data *all, t_bres *p, int color)
@@ -55,7 +67,7 @@ void	bresenham(t_points *a, t_points *b, t_data *all)
 	p->incx = (b->xp < a->xp) ? -1 : 1;
 	p->incy = (b->yp < a->yp) ? -1 : 1;
 	p->x = a->xp;
-    p->y = a->yp;
+	p->y = a->yp;
 	if (p->dx > p->dy)
 		case1(all, p, all->colour);
 	else

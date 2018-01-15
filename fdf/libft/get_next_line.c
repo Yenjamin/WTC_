@@ -6,7 +6,7 @@
 /*   By: yechen <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/01 13:47:12 by yechen            #+#    #+#             */
-/*   Updated: 2017/09/04 15:22:08 by yechen           ###   ########.fr       */
+/*   Updated: 2018/01/15 13:35:33 by yechen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	readline(int fd, char **part)
 	return (i);
 }
 
-int		get_next_line(const int fd, char **line)
+int			get_next_line(const int fd, char **line)
 {
 	static char	*s;
 	char		*p;
