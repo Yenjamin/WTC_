@@ -1,7 +1,9 @@
 NAME = wolf3d
 
 SRC = main.c \
-		reader.c
+		initialize.c \
+		reader.c \
+		player.c
 
 FLAGS = -Wall -Werror -Wextra -g
 

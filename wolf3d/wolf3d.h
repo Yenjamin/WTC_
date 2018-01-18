@@ -28,14 +28,26 @@ typedef struct		s_thing
 	struct s_thing	*next;
 }					t_thing;
 
+typedef struct		s_player
+{
+	int				x;
+	int				y;
+	int				pov;
+	int				fov;
+}					t_player;
+
 typedef struct		s_data
 {
 	int				x;
 	int				y;
 	t_thing			*thing;
+	void			*mlx;
+	void			*win;
 }					t_data;
 
 void	error(char *str);
+void    initialize(char *av, t_data *all);
 void    reader(char *av, t_data *all);
+int		escape(int keycode, t_data *all);
 
 #endif
