@@ -3,6 +3,7 @@ NAME = wolf3d
 SRC = main.c \
 		initialize.c \
 		reader.c \
+		key.c \
 		player.c
 
 FLAGS = -Wall -Werror -Wextra -g

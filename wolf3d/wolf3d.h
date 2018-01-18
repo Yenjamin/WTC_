@@ -18,6 +18,8 @@
 # include <math.h>
 
 # define WS 64
+# define FOV 70
+# define POV 30
 
 typedef struct		s_thing
 {
@@ -32,8 +34,6 @@ typedef struct		s_player
 {
 	int				x;
 	int				y;
-	int				pov;
-	int				fov;
 }					t_player;
 
 typedef struct		s_data
@@ -43,11 +43,13 @@ typedef struct		s_data
 	t_thing			*thing;
 	void			*mlx;
 	void			*win;
+	int				px;
+	int				py;
 }					t_data;
 
 void	error(char *str);
 void    initialize(char *av, t_data *all);
 void    reader(char *av, t_data *all);
-int		escape(int keycode, t_data *all);
+int		keyhook(int keycode, t_data *all);
 
 #endif
